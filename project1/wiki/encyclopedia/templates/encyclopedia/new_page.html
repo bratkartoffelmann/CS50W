@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %} <!-- loads the static template tag -->
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Create new page</h1>
+
+    <form action="{% url 'new_page' %}" method="POST">
+        {% csrf_token %} <!-- CSRF token is added -->
+    
+        <!-- Title -->
+        <div class="form-row">
+            <label for="title">Entry Title:</label>
+            <input type="text" id="title" name="title" class="form-title">
+        </div>
+
+        <!-- Content -->
+        <div class="form-row">
+            <label for="content">Entry Content:</label>
+            <textarea id="content" name="content" class="form-content" rows="15"></textarea>
+        </div>
+    
+        <!-- Submit button -->
+        <input type="submit" value="Submit" class="btn submit">
+    </form>
+    
+    
+{% endblock %}

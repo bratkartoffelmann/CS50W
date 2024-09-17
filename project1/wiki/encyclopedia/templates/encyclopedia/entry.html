@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+
+    <!-- "| safe" is a safe filter from Django -->
+    {{ content | safe }}
+
+    
+
+    <form action="{% url 'edit' %}" method="POST">
+        {% csrf_token %} <!-- CSRF token is added -->
+
+        <input type="hidden" name="entry_title", value="{{ title }}">
+        <button type="submit" class="btn edit">Edit Page</button>
+    </form>
+
+{% endblock %}
