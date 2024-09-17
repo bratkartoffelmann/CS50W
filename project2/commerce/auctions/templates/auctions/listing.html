@@ -1,0 +1,120 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <div class="container category-box">
+        <h3>Categories</h3>
+
+        {% for category in categories %}
+            <a href="{% url 'category' category.type %}">{{ category }}</a> <br>
+        {% endfor %}
+
+        <a href="{% url 'index' %}">All</a>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <div class="container listing-box">
+
+        <div class="listing-box-top">
+            <!-- Image display -->
+            <div class="listing listing-image">
+                <img src="{{ listing.image }}" alt="Image of {{ listing.title }}" width="200">
+
+                <div class="div-spacing">
+                    {% if user.is_authenticated and user != listing.owner %}
+                    <!-- Watchlist -->
+                    <form action="{% url 'toggle-watchlist' listing_id=listing.id %}" method="POST">
+                        {% csrf_token %}
+                        {% if isWatchlist %}
+                            <button type="submit" class="btn btn-danger">Remove from Watchlist</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-success">Add to Watchlist</button>
+                        {% endif %}
+                    </form>
+                    {% endif %}
+                </div>
+
+            </div>
+    
+            <!-- Information Display -->
+            <div class="listing listing-info">
+                <div class="div-spacing">
+                    {% for message in messages %}
+                    <span class="alert {{ message.tags }}">{{ message }}</span>
+                    {% endfor %}
+                </div>
+
+                <h3>{{ listing.title }}</h3>
+                <p>
+                    <span class="info-label">Description:</span>
+                    {{ listing.description }}
+                </p>
+                <p>
+                    <span class="info-label">Current bid:</span>
+                    {{ listing.price }}
+                </p>
+                <p>
+                    <span class="info-label">Current bidder:</span>
+                    {{ listing.buyer }}
+                </p>
+                <p>
+                    <span class="info-label">Seller:</span>
+                    {{ listing.owner }}
+                </p>
+
+                <!-- If user is logged in -->
+                {% if user.is_authenticated %}
+                    {% if user != listing.owner %}
+                    
+                    <!-- Bid Submission -->
+                    <form action="{% url 'add-bid' listing_id=listing.id %}" method="POST">
+                        {% csrf_token %}
+
+                        <input type="text" id="new_bid" name="new_bid" class="form-control" placeholder="Enter value to bid (e.g. 1.00)">
+                        <button type="submit" class="btn btn-primary btn-right">Submit bid</button>
+                    </form>
+                    
+
+                    {% else %}
+                        {% if listing.active %}
+                        <!-- Close Listing -->
+                        <form action="{% url 'close-auction' listing_id=listing.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Close Listing</button>
+                        </form>
+                        {% endif %}
+
+                    {% endif %}
+
+
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="listing listing-comments">
+            <h3>Comments</h3>
+
+            <ul>
+                {% for comment in comments %}
+                <li><strong>{{ comment.user.username }}</strong>: {{ comment.comment }}</li>
+                {% empty %}
+                <li>No comments yet.</li>
+                {% endfor %}
+            </ul>
+
+            {% if user.is_authenticated and user != listing.owner %}
+            <form action="{% url 'add-comment' listing_id=listing.id %}" method="POST">
+                {% csrf_token %}
+                <textarea class="comment-text-area" name="newComment" placeholder="Write your comment"></textarea>
+                <button type="submit" class="btn btn-primary btn-right">Add comment</button>
+            </form>
+
+            
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock %}

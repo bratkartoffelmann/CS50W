@@ -1,0 +1,181 @@
+body {
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+h2, h3 {
+    font-weight: bold;
+}
+
+h2 {font-size: 28px;}
+h3 {font-size: 20px;}
+
+.logo-header {
+    font-size: 36px;
+    margin-left: -4px;
+    margin-bottom: -10px;
+}
+
+.logo-body {
+    font-size: 20px;
+    margin-top: -30px;
+}
+
+
+.header-container {
+    width: 100%; /* Ensure the header container takes up the full width */
+}
+
+.header {
+    display: flex; /* Enable flexbox */
+    justify-content: space-between; /* Space between left and right sections */
+    align-items: center; /* Vertically center items */
+    width: 100%; /* Make sure the header takes up the full width */
+}
+
+.left-header, .right-header {
+    width: 50%; /* Each section takes up 50% of the container's width */
+}
+
+.left-header {
+    text-align: left; /* Align text to the left */
+}
+
+.right-header {
+    text-align: right; /* This aligns the entire right-header to the right */
+    display: flex; /* Enable flexbox for the right-header */
+    justify-content: flex-end; /* Align items to the right of the right-header */
+}
+
+
+
+.main-container {
+    display: flex;
+    justify-content: space-between; /* Ensures the divs are spaced out across the container */
+    align-items: flex-start; /* Aligns the divs at the top */
+}
+
+.category-box {
+    width: 12%; /* Adjust as needed for the category box */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.listing-box {
+    width: 85%; /* Adjust as needed for the listing box */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    padding-left: 20px;
+}
+
+.divider {
+    width: 2px;
+    border-color: black; /* Color of the solid line */
+    height: 100%; /* Make the divider full height */
+    margin: 0 15px; /* Add spacing around the divider */
+}
+
+/* CSS in index.html */
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: calc(1.2em * 5); /* Approximate height for 5 lines */
+}
+
+.img-standard {
+    /* width: 150px; */
+    height: 200px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+/* CSS in create-listing.html */
+
+.required-asterisk {
+    color: red;
+}
+
+
+/* CSS in layout.html */
+
+.listing {
+    padding: 10px;
+}
+
+.listing-box-top {
+    display: flex;
+    gap: 20px; /* Adjust the space between the image and info section */
+    align-items: flex-start; /* Align items to the start of the cross axis */
+}
+
+/* Ensure the image is responsive and centered */
+.listing-image img {
+    max-width: 100%; /* Ensures the image scales with its container */
+    height: auto; /* Keeps the image's aspect ratio */
+}
+
+/* Optional: Define widths for image and info section if needed */
+.listing-image {
+    flex: 1; /* Adjusts the width proportionally if needed */
+    max-width: 200px; /* Optional: Set a max-width for the image */
+}
+
+.listing-info {
+    flex: 1; /* Allows this div to take up remaining space */
+}
+
+.info-label {
+    font-weight: bold;
+}
+
+
+
+.close-listing-btn {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.comment-text-area {
+    width: 100%;
+    height: 150px; /* Adjust the height as needed */
+    box-sizing: border-box; /* Ensures padding and border are included in the width/height */
+}
+
+.btn-right {
+    float: right;
+}
+
+
+
+
+
+/* Messages */
+.div-spacing {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.messages {
+    margin-top: 20px;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.alert.success {
+    background-color: #28a745; /* Green */
+}
+
+.alert.error {
+    background-color: #dc3545; /* Red */
+}

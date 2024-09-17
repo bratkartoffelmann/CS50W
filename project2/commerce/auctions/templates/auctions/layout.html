@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Auctions{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container header-container">
+            <div class="header">
+                <div class="left-header">
+                    <p>
+                        <span class="logo-header" style="color: red">C</span>
+                        <span class="logo-header" style="color: blue;">S</span>
+                        <span class="logo-header" style="color: orange;">5</span>
+                        <span class="logo-header" style="color: yellowgreen;">0</span>
+                        <span class="logo-header" style="color: grey;">W</span>
+                    </p>
+                    <p class="logo-body">Auctions</p>
+                </div>
+                <div class="right-header">
+                    <div>
+                        {% if user.is_authenticated %}
+                            Welcome <strong>{{ user.username }}</strong>.
+                        {% else %}
+                            Not signed in.
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="header">
+                <div class="left-header">
+                    <ul class="nav">
+                        <!-- Active Listing -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
+                        </li>
+        
+                        <!-- Create Listing -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'create-listing' %}">Create New Listing</a>
+                        </li>
+        
+                        <!-- Watchlist -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-header">
+                    <ul class="nav">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'register' %}">Register</a>
+                            </li>
+                        {% endif %}
+                    </ul>    
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+
+
+
+        <div class="container main-container">
+            {% block body %}
+            {% endblock %}
+        </div>
+
+    </body>
+</html>
+
+
+<!-- {% if user.is_authenticated %}
+    Welcome <strong>{{ user.username }}</strong>.
+{% else %}
+    Not signed in.
+{% endif %} -->
