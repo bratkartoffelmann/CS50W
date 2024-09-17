@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Google -->
+        <div class="top-left">
+            <span class="google-icon">
+                <span class="letter-g1">G</span>
+                <span class="letter-o1">o</span>
+                <span class="letter-o2">o</span>
+                <span class="letter-g2">g</span>
+                <span class="letter-l">l</span>
+                <span class="letter-e">e</span>
+            </span>
+
+            <span>
+                Advance Search
+            </span>
+        </div>
+
+        <div class="form">
+            <p>Fill pages with ...</p>
+            <form action="https://www.google.com/search" method="get">
+                <!-- all these words -->
+                <label for="all" class="advance-label">all these words:</label>
+                <input type="text" id="all" name="as_q" class="advance-input">
+                <br><br>
+                <!-- this exact word or phrase -->
+                <label for="exact" class="advance-label">this exact word or phrase:</label>
+                <input type="text" id="exact" name="as_epq" class="advance-input">
+                <br><br>
+                <!-- any of these words -->
+                <label for="any" class="advance-label">any of these words:</label>
+                <input type="text" id="any" name="as_oq" class="advance-input">
+                <br><br>
+                <!-- none of these words -->
+                <label for="none" class="advance-label">none of these words:</label>
+                <input type="text" id="none" name="as_eq" class="advance-input">
+
+                <div class="form-footer">
+                    <input type="submit" value="Advanced Search" class="advance-search">
+                </div>
+            </form>
+        </div>
+
+        <!-- Links to other search -->
+        <div class="top-right">
+            <a href="index.html">Google Search</a>
+        </div>
+    </body>
+</html>

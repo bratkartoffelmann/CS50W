@@ -1,0 +1,118 @@
+/* Default */
+body {
+    margin: 1em;
+}
+
+/* Overall Layout */
+.top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    width: 300px;
+}
+
+.button-container {
+    display: flex;              /* Use flexbox layout */
+    justify-content: center;    /* Center the buttons horizontally */
+    gap: 10px;                  /* Add space between the buttons */
+    margin: 0 auto;             /* Center the container horizontally */
+}
+
+.form {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 600px;
+}
+
+.form-footer {
+    margin-top: 20px; /* Space above the button */
+    display: flex;
+    justify-content: flex-end; /* Align button to the right */
+}
+
+
+
+/* Individual Components */
+.query { 
+    height: 25px;
+    width: 100%;
+    border: 1px solid #5b5b5b;
+    border-radius: 100px;
+    padding: 3px;
+    padding-left: 10px;
+    display: block; /* Ensures the input takes up a full line */
+    margin-bottom: 10px; /* Adds space between input fields */
+}
+
+.google-search, .feeling-lucky { 
+    height: 25px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: white;
+}
+
+.advance-search { 
+    height: 25px;
+    /* border: 1px solid #000000; */
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(124, 172, 243);
+    color: white;
+
+    display: block;
+    right: 0;
+}
+
+.advance-label {
+    display: inline-block;
+    width: 200px;
+}
+
+.advance-input {
+    width: calc(100% - 220px)
+}
+
+
+
+/* Google font colour */
+.google-icon {
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.letter-g1, .letter-g2, .letter-o1, .letter-o2, .letter-l, .letter-e {
+    margin-left: -0.1em;
+}
+
+.letter-g1 { color: rgb(16, 91, 207); }
+.letter-o1 { color: rgb(197, 61, 53); }
+.letter-o2 { color: rgb(241, 179, 50); }
+.letter-g2 { color: rgb(16, 91, 207); }
+.letter-l  { color: rgb(0, 128, 78); }
+.letter-e  { color: rgb(197, 61, 53); }
+
+.google-image {
+    color: rgb(75, 75, 75);
+    text-align: right;
+    margin-right: 50px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+}

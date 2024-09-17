@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="center">
+
+            <!-- Google -->
+            <p class="google-icon">
+                <span class="letter-g1">G</span>
+                <span class="letter-o1">o</span>
+                <span class="letter-o2">o</span>
+                <span class="letter-g2">g</span>
+                <span class="letter-l">l</span>
+                <span class="letter-e">e</span>
+            </p>
+            <p class="google-image">images</p>
+
+
+            <!-- Search actionable -->
+            <form action="https://www.google.com/search" method="get">
+                <input type="text" name="q" class="query" placeholder="Search for images">
+                <input type="hidden" name="tbm" value="isch"> <!-- Hidden input to specify image search -->
+
+                <div class="button-container">
+                    <input type="submit" value="Image Search" class="google-search">
+                </div>
+            </form>
+        </div>
+
+        <!-- Links to other search -->
+        <div class="top-right">
+            <a href="index.html">Google Search</a>
+        </div>
+    </body>
+</html>
